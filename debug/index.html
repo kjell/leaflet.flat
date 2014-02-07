@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="stylesheet" href="../src/leaflet/dist/leaflet.css">
+  <script src="../src/leaflet/dist/leaflet-src.js"></script>
+  <script src="../src/FlatLayer.js"></script>
+  <style type="text/css">
+    .map { position: absolute; width: 100%; height: 100%; }
+    #flat { right: 0; }
+    body { margin: 0; padding: 0; }
+  </style>
+<body>
+  <div id="raw" class="map"></div>
+  <div id="flat" class="map"></div>
+
+  <script type="text/javascript">
+    var flatMap = L.map('flat', {center: [0, 0], zoom: 1})
+    L.flatLayer("http://tiles.dx.artsmia.org/v2/115320/{z}/{x}/{y}.png", {
+        width: 4074,
+        height: 5236,
+        maxZoom: 5
+      }
+    ).addTo(flatMap)
+  </script>
+</html>
